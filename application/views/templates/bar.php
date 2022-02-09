@@ -112,10 +112,13 @@
 						<a href="#"><i class="fa fa-file-text"></i> <span class="nav-label">Sales </span><span class="fa arrow"></span></a>
 						<ul class="nav nav-second-level collapse">
 							<li>
-								<a href="<?php echo base_url() ?>Invoice/index_invoice"><i class="fa fa-book"></i> <span class="nav-label">Tahunan</span></a>
+								<a href="<?php echo base_url() ?>Invoice/index_invoice"><i class="fa fa-book"></i> <span class="nav-label">Data invoice</span></a>
 							</li>
 							<li>
 								<a href="<?php echo base_url() ?>Invoice"><i class="fa fa-book"></i> <span class="nav-label">Invoice</span></a>
+							</li>
+							<li>
+								<a href="<?php echo base_url() ?>Client"><i class="fa fa-book"></i> <span class="nav-label">Client</span></a>
 							</li>
 						</ul>
 					</li>

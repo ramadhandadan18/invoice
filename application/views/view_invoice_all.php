@@ -164,11 +164,11 @@
     });
 
     function getMainTable() {
-        var fill_no_iv = $('#fill_no_inv').val() == null ? 'ALL' : $('#fill_no_inv').val();
-        var fill_client = $('#fill_client').val() == null ? 'ALL' : $('#fill_client').val();
-        var fill_doc_status = $('#fill_doc_status').val() == null ? 'ALL' : $('#fill_doc_status').val();
-        var fill_date_inv = $('#fill_date_inv').val() == null ? 'ALL' : $('#fill_date_inv').val();
-        var fill_date_due = $('#fill_date_due').val() == null ? 'ALL' : $('#fill_date_due').val();
+        // var fill_no_iv = $('#fill_no_inv').val() == null ? 'ALL' : $('#fill_no_inv').val();
+        // var fill_client = $('#fill_client').val() == null ? 'ALL' : $('#fill_client').val();
+        // var fill_doc_status = $('#fill_doc_status').val() == null ? 'ALL' : $('#fill_doc_status').val();
+        // var fill_date_inv = $('#fill_date_inv').val() == null ? 'ALL' : $('#fill_date_inv').val();
+        // var fill_date_due = $('#fill_date_due').val() == null ? 'ALL' : $('#fill_date_due').val();
         var role_id = 1;
         var oTable = $('#main-table').DataTable({
             processing: true,
@@ -197,7 +197,7 @@
                 }
             },
             ajax: {
-                url: '<?= base_url("Invoice/get_data_by_id") ?>' + fill_no_iv + '/' + fill_client + '/' + fill_doc_status + '/' + fill_date_inv + '/' + fill_date_due,
+                url: '<?= base_url("Invoice/get_data_by_id") ?>', //+ fill_no_iv + '/' + fill_client + '/' + fill_doc_status + '/' + fill_date_inv + '/' + fill_date_due,
                 type: 'GET',
                 dataSrc: function(json) {
                     var return_data = new Array()
@@ -209,7 +209,7 @@
                             '</div>'
                         return_data.push({
                             'no': (i + 1),
-
+                            'id': item['id'],
                             'no_inv': item['no_inv'],
                             'client': item['client'],
                             'doc_status': item['doc_status'],
@@ -218,7 +218,7 @@
                             'outstanding': item['outstanding'],
                             'date_inv': item['date_inv'],
                             'due_date': item['due_date'],
-                            'action': item['id_inv'] != '' ? button : ''
+                            'action': item['id'] != '' ? button : ''
                         })
                     })
                     return return_data
@@ -227,7 +227,6 @@
             columns: [{
                     data: 'no'
                 },
-
                 {
                     data: 'no_inv'
                 },

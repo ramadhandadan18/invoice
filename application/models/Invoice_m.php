@@ -56,7 +56,7 @@ class Invoice_m extends CI_Model
         return $result;
     }
 
-    public function get_data_by_id($id_inv)
+    public function get_data_by_id($id)
     {
 
         $qy = "
@@ -65,8 +65,10 @@ class Invoice_m extends CI_Model
             from
                 invoice
             where 
-                id_inv = '" . $id_inv . "'
+                id = '" . $id . "'
         ";
+        // echo ($this->db->last_query($id));
+        // die;
         $result = $this->db->query($qy)->row();
         return $result;
     }

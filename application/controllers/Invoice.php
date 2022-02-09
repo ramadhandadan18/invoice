@@ -140,12 +140,13 @@ class Invoice extends CI_Controller
         }
     }
 
-    public function get_data_by_id($id_inv)
+    public function get_data_by_id($id)
     {
+        echopre($id);
 
-        $invoice = $this->Invoice_m->get_data_by_id($id_inv);
+        $invoice = $this->Invoice_m->get_data_by_id($id);
         foreach ($invoice as $key => $value) {
-            $data['id_inv'] = $value['id_inv'];
+            $data['id'] = $value['id'];
             $data['no_inv'] = $value['no_inv'];
             $data['client'] = $value['client'];
             $data['doc_status'] = $value['doc_status'];
@@ -153,9 +154,10 @@ class Invoice extends CI_Controller
             $data['amount'] = $value['amount'];
             $data['outstanding'] = $value['outstanding'];
             $data['date_inv'] = $value['date_inv'];
-            $data['date_due'] = $value['date_due'];
+            $data['due_date'] = $value['due_date'];
         }
         $data_obj = (object)$data;
+
         // $this->echopre($data_obj);
         // die;
         echo json_encode($data_obj);
